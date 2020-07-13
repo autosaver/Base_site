@@ -6,8 +6,6 @@ from bs4 import BeautifulSoup
 import requests
 from django.template.response import TemplateResponse
 
-
-
 baseurl = "https://www.timeanddate.com/weather/?query="
 basemain = "https://www.timeanddate.com/"
 
@@ -26,6 +24,6 @@ def weather_city(request):
         fulldata = BeautifulSoup(soup, 'lxml')
         data = fulldata.find("section", {"class": "bk-wt"})
         if data:
-            return HttpResponse(data)
+            return render(request, 'weather/result.html', {'data': data, })
 
     return render(request, 'weather/index.html', )
