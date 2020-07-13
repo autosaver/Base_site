@@ -1,0 +1,67 @@
+<html lang="en">
+<div class="container">
+    <head>
+        <meta charset="UTF-8">
+        <title>Aditya_kumar_singh</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head>
+    <body>
+
+    <nav class="top">
+        <div class="container nav-wrapper">
+            <a href="/todo" class="brand-logo">Todo's List</a>
+            <ul id="nav-mobile" class="right">
+                <li><a href="/">Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <form action="{% url 'baseview' %}" method="post" onsubmit="return validateForm()">
+            {% csrf_token %}
+            <input type="text" id="task" name="task" placeholder="Add some new Tasks"><br>
+            <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+            </button>
+        </form>
+
+
+        <div class="col s12 m4">
+            {% for Todos in Todo_list %}
+            <div class="card horizontal">
+                <div class="card-image">
+                    <img src="data:image/png;base64,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"
+                         alt="Image" height="50" width="50">
+                </div>
+                <div class="card-stacked">
+                    <div class="card-content">
+                        <p>{{Todos.text}}</p>
+                    </div>
+                    <div class="card-action fill">
+                        <form action="deltask/{{Todos.id}}/" method="post">
+                            <button class="btn-floating btn-medium waves-effect waves-light " type="submit"><i
+                                    class="material-icons">done</i></button>
+                            <button class="btn-floating btn-medium waves-effect waves-light " type="submit"><i class="
+                                    material-icons">delete</i></button>
+                            <a class="btn-floating btn-medium waves-effect waves-light "><i
+                                    class="material-icons">edit</i></a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+
+    </body>
+</div>
+<nav class="top">
+    <a href="/todo" class="brand-logo">Made using Django</a>
+    <ul id="nav-mobile" class="right">
+        <li><a href="/todo">Refresh</a></li>
+    </ul>
+</nav>
+</html>
