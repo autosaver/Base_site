@@ -1,0 +1,35 @@
+<html lang="en">
+<div class="container">
+    <head>
+        <meta charset="UTF-8">
+        <title>Aditya_kumar_singh</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    </head>
+    <body>
+
+    <nav class="top  teal lighten-2">
+        <div class="container nav-wrapper ">
+            <a href="/calculator" class="brand-logo">Calculator</a>
+            <ul id="nav-mobile" class="right">
+                <li><a href="/">Home</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <form action="{% url 'calculate' %}" method="post" onsubmit="return validateForm()">
+            {% csrf_token %}
+            <input type="text" id="task" name="task" placeholder="Add some new Tasks" value={% block content %} {% endblock content %}><br>
+            <button class="btn waves-effect waves-light" type="submit" name="action">calculate
+                <i class="material-icons right">assessment</i>
+            </button>
+        </form>
+    </div>
+    <label>"2+2*2+3/3" would give an result of 7.</label>
+    </body>
+</div>
+
+</html>

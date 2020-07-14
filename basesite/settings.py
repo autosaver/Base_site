@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'basesitepage',
     'weather',
     'todo',
+    'calculator',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
