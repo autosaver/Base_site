@@ -4,6 +4,7 @@ from .models import BaseList
 from django.utils import timezone
 from django.http import HttpResponseRedirect
 
+
 # Create your views here.
 @csrf_exempt
 def baseview(request):
@@ -12,6 +13,7 @@ def baseview(request):
         BaseList.objects.create(added_date=timezone.now(), text=search)
     Todo_list = BaseList.objects.all().order_by("-added_date")
     return render(request, 'base.html', {"Todo_list": Todo_list, })
+
 
 @csrf_exempt
 def deltask(request, todo_id):
