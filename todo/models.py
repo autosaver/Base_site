@@ -12,4 +12,3 @@ class BaseList(models.Model):
 
     class Meta:
         verbose_name_plural = 'TODO-LISTS'
-

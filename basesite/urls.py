@@ -23,5 +23,6 @@ urlpatterns = [
     path('weather/', include('weather.urls')),
     path('todo/', include('todo.urls')),
     path('calculator/', include('calculator.urls')),
+    path('textutils/', include('textutils.urls')),
     path('',include('basesitepage.urls')),
 ]
