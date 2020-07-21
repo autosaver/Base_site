@@ -13,6 +13,9 @@ def text_input(request):
     return render(request, 'textutils.html')
 
 
+from collections import Counter as count
+
+
 @csrf_exempt
 def text_process(request):
     value = request.POST.get("string")
@@ -20,5 +23,6 @@ def text_process(request):
     string += "<br> Number of characters in this string are : " + str(len(value))
     string += "<br> Number of vowels in this string are : " + str(
         value.count('a') + value.count('e') + value.count('i') + value.count('o') + value.count('u'))
-    result = {'result': string, }
+    counts = count(value)
+    result = {'result': string, 'charcount': counts, }
     return render(request, 'textutils_result.html', result)

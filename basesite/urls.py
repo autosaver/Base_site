@@ -23,5 +23,7 @@ urlpatterns = [
     path('todo/', include('todo.urls')),
     path('calculator/', include('calculator.urls')),
     path('textutils/', include('textutils.urls')),
+    path('shop/', include('mycart.urls')),
+    path('blog/', include('myblog.urls')),
     path('', include('basesitepage.urls')),
 ]
